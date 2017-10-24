@@ -320,27 +320,15 @@
       
         
           
-            <p>题意就是有一组数，求连续序列的最大值。<br>共有三种不同的算法：暴力枚举，求和相减，分治法；<br>代码如下：<br>//最大连续和</p>
-<p>#include <iostream></iostream></p>
-<p>using namespace std;</p>
-<p>//method 3;O(nlgn)<br>int maxsum(int* A,int x,int y){<br>    if(y-x==1)  return(A[x]);<br>    int m=x+(y-x)/2;<br>    int maxs=max(maxsum(A,x,m),maxsum(A,m,y));<br>    int v,L,R;<br>    v=0;L=A[m-1];<br>    for(int i=m-1;i&gt;=x;i–) L=max(L,v+=A[i]);<br>    v=0;R=A[m];<br>    for(int i=m;i&lt;y;i++)    R=max(R,v+=A[i]);<br>    return max(maxs,L+R);<br>    }</p>
-<p>int main()<br>{<br>    //输入部分；<br>    int tot=0;<br>    int A[1000];</p>
-<pre><code>int n;
-cin&gt;&gt;n;
-for(int i=0;i&lt;n;i++){
-    cin&gt;&gt;A[i];
-}
-
-//运算部分；
-int best=A[0];
-</code></pre><p>   /<em><br>   //method 1;O(n^3)<br>   for(int i=0;i<n;i++){ for(int="" j="i;j<n;j++){" int="" sum="0;" k="i;k<=j;k++){" sum+="A[k];" tot++;="" }="" if(sum="">best)    best=sum;<br>        }<br>    }</n;i++){></em>/<br>/<em><br>    //method 2;O(n^2)<br>    int S[1000];<br>    S[0]=0;<br>    for(int i=0;i&lt;n;i++)    S[i+1]=S[i]+A[i];<br>    for(int i=0;i&lt;n;i++)<br>        for(int j=i;j&lt;n;j++){<br>            best=max(best,S[j+1]-S[i]);<br>            tot++;<br>        }<br>    //method2最后数组的大小可能要改变，不然越界；
-</em>/</p>
-<p>/<em><br>    //method 3;<br>    best=maxsum(A,0,n);
-</em>/<br>    cout&lt;&lt;best&lt;&lt;endl;<br>    cout&lt;&lt;”tot:”&lt;&lt;tot&lt;&lt;endl;</p>
-<pre><code>return 0;
-</code></pre><p>}</p>
-
-          
+          题意就是有一组数，求连续序列的最大值。共有三种不同的算法：暴力枚举，求和相减，分治法；代码如下：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/24/最大连续和/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -458,9 +446,16 @@ int best=A[0];
       
         
           
-            <p>这是我第一次搭建自己的博客，十分感谢赛北大佬和安伦大佬的大力支持。<br>欢迎大家啦！٩(๑❛ᴗ❛๑)۶</p>
+          这是我第一次搭建自己的博客，十分感谢赛北大佬和安伦大佬的大力支持。欢迎大家啦！٩(๑❛ᴗ❛๑)۶
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/14/欢迎大家/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
