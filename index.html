@@ -249,6 +249,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/最大连续和/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="HarrySong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/img/chelsea.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HarrySong">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/最大连续和/" itemprop="url">最大连续和</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T22:08:01+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题意就是有一组数，求连续序列的最大值。<br>共有三种不同的算法：暴力枚举，求和相减，分治法；<br>代码如下：<br>//最大连续和</p>
+<p>#include <iostream></iostream></p>
+<p>using namespace std;</p>
+<p>//method 3;O(nlgn)<br>int maxsum(int* A,int x,int y){<br>    if(y-x==1)  return(A[x]);<br>    int m=x+(y-x)/2;<br>    int maxs=max(maxsum(A,x,m),maxsum(A,m,y));<br>    int v,L,R;<br>    v=0;L=A[m-1];<br>    for(int i=m-1;i&gt;=x;i–) L=max(L,v+=A[i]);<br>    v=0;R=A[m];<br>    for(int i=m;i&lt;y;i++)    R=max(R,v+=A[i]);<br>    return max(maxs,L+R);<br>    }</p>
+<p>int main()<br>{<br>    //输入部分；<br>    int tot=0;<br>    int A[1000];</p>
+<pre><code>int n;
+cin&gt;&gt;n;
+for(int i=0;i&lt;n;i++){
+    cin&gt;&gt;A[i];
+}
+
+//运算部分；
+int best=A[0];
+</code></pre><p>   /<em><br>   //method 1;O(n^3)<br>   for(int i=0;i<n;i++){ for(int="" j="i;j<n;j++){" int="" sum="0;" k="i;k<=j;k++){" sum+="A[k];" tot++;="" }="" if(sum="">best)    best=sum;<br>        }<br>    }</n;i++){></em>/<br>/<em><br>    //method 2;O(n^2)<br>    int S[1000];<br>    S[0]=0;<br>    for(int i=0;i&lt;n;i++)    S[i+1]=S[i]+A[i];<br>    for(int i=0;i&lt;n;i++)<br>        for(int j=i;j&lt;n;j++){<br>            best=max(best,S[j+1]-S[i]);<br>            tot++;<br>        }<br>    //method2最后数组的大小可能要改变，不然越界；
+</em>/</p>
+<p>/<em><br>    //method 3;<br>    best=maxsum(A,0,n);
+</em>/<br>    cout&lt;&lt;best&lt;&lt;endl;<br>    cout&lt;&lt;”tot:”&lt;&lt;tot&lt;&lt;endl;</p>
+<pre><code>return 0;
+</code></pre><p>}</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/14/欢迎大家/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
