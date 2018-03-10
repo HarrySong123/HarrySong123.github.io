@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://www.forkosh.com/mathtex.cgi? w_j">
 <meta property="og:image" content="http://www.forkosh.com/mathtex.cgi? v_j">
 <meta property="og:image" content="http://www.forkosh.com/mathtex.cgi? f\left[ i,j\right] =\max \left\{ f\left[ i-1 ,j- w_{i}\right] +p_{i},f\left[ i-1,j\right] \right\}">
-<meta property="og:updated_time" content="2018-03-10T08:04:56.846Z">
+<meta property="og:updated_time" content="2018-03-10T08:10:33.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0-1背包问题KnapsackProblem">
 <meta name="twitter:description" content="嗯 好久没更新了 寒假一直在玩 导致汪云海老师给我们介绍的dp算法忘得差不多了 而这学期又开了算法这门课 于是决定写一篇blog来记录一下 以防以后又忘了QAQ。0-1背包问题，是一个很典型的dp问题，就是n种物品，物品j的质量我们记作,价值为,而背包所能承受的最大重量为W。好，我们现在得知道随着选择的进行，无非就两种情况，要这个物品或者不要这个，于是我们就有了状态转移方程：f[i,j]表示在扫描">
@@ -323,7 +323,7 @@
       
 
       
-        <p>嗯 好久没更新了 寒假一直在玩 导致汪云海老师给我们介绍的dp算法忘得差不多了 而这学期又开了算法这门课 于是决定写一篇blog来记录一下 以防以后又忘了QAQ。<br>0-1背包问题，是一个很典型的dp问题，就是n种物品，物品j的质量我们记作<img src="http://www.forkosh.com/mathtex.cgi? w_j" alt="">,价值为<img src="http://www.forkosh.com/mathtex.cgi? v_j" alt="">,而背包所能承受的最大重量为W。<br>好，我们现在得知道随着选择的进行，无非就两种情况，要这个物品或者不要这个，于是我们就有了状态转移方程：<br><img src="http://www.forkosh.com/mathtex.cgi? f\left[ i,j\right] =\max \left\{ f\left[ i-1 ,j- w_{i}\right] +p_{i},f\left[ i-1,j\right] \right\}" alt=""><br>f[i,j]表示在扫描到第i个物品时，背包容量为j的最大价值。这是一个局部最优的子结构，然后通过这个局部最优我们可以推到整体最优，这也是dp算法的核心。</p>
+        <p>嗯 好久没更新了 寒假一直在玩 导致汪云海老师给我们介绍的dp算法忘得差不多了 而这学期又开了算法这门课 于是决定写一篇blog来记录一下 以防以后又忘了QAQ。<br>0-1背包问题，是一个很典型的dp问题，就是n种物品，物品j的质量我们记作<img src="http://www.forkosh.com/mathtex.cgi? w_j" alt="">,价值为<img src="http://www.forkosh.com/mathtex.cgi? v_j" alt="">,而背包所能承受的最大重量为W。<br>好，我们现在得知道随着选择的进行，无非就两种情况，要这个物品或者不要这个，于是我们就有了状态转移方程：<br><img src="http://www.forkosh.com/mathtex.cgi? f\left[ i,j\right] =\max \left\{ f\left[ i-1 ,j- w_{i}\right] +p_{i},f\left[ i-1,j\right] \right\}" alt=""><br>f[i,j]表示在扫描到第i个物品时，背包容量为j的最大价值。这是一个局部最优的子结构，然后通过这个局部最优我们可以推到整体最优，这也是dp算法的核心。<br>(一个是取第i个物品，价值量增加，还有一个是不取，和i-1是相同的结果。)<br>还有这个仅仅是i&gt;0且j&gt;=wi的情况。如果wi&gt;j,等于f[i-1,j],如果i=0或者W=0,f[i,j]=0。<br>最后求f[n,W]就ok。</p>
 
       
     </div>
