@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <meta name="description" content="由于数据结构课设和计算机图形学作业的要求，今天入坑了QT。由于C++至今没有一个官方的GUI框架，QT这个第三方框架如今很好的满足了需求。
+我们安装的版本是QT 5.10，而我们vs的版本是2017.这篇文章主要讲述下列：
+
+QT的安装
+QT如何集成到vs中去
+QT的helloworld
+
+QT的安" />
+  
+
+  
+  
+  
+  
+  
+  
+  <title>QT入坑指南 | HarrySong</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="由于数据结构课设和计算机图形学作业的要求，今天入坑了QT。由于C++至今没有一个官方的GUI框架，QT这个第三方框架如今很好的满足了需求。 我们安装的版本是QT 5.10，而我们vs的版本是2017.这篇文章主要讲述下列：  QT的安装 QT如何集成到vs中去 QT的helloworld  QT的安装我们安装的版本是QT 5.10，而我们vs的版本是2017. 由于没有安装过QT，今天也是第一次使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QT入坑指南">
+<meta property="og:url" content="http://yoursite.com/2018/03/11/QT入坑指南/index.html">
+<meta property="og:site_name" content="HarrySong">
+<meta property="og:description" content="由于数据结构课设和计算机图形学作业的要求，今天入坑了QT。由于C++至今没有一个官方的GUI框架，QT这个第三方框架如今很好的满足了需求。 我们安装的版本是QT 5.10，而我们vs的版本是2017.这篇文章主要讲述下列：  QT的安装 QT如何集成到vs中去 QT的helloworld  QT的安装我们安装的版本是QT 5.10，而我们vs的版本是2017. 由于没有安装过QT，今天也是第一次使">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/img/201803110.png">
+<meta property="og:image" content="http://yoursite.com/img/201803111.png">
+<meta property="og:image" content="http://yoursite.com/img/20180311_2.png">
+<meta property="og:image" content="http://yoursite.com/img/20180311_3.png">
+<meta property="og:image" content="http://yoursite.com/img/20180311_4.png">
+<meta property="og:image" content="http://yoursite.com/img/20180311_5.png">
+<meta property="og:updated_time" content="2018-03-11T08:03:30.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QT入坑指南">
+<meta name="twitter:description" content="由于数据结构课设和计算机图形学作业的要求，今天入坑了QT。由于C++至今没有一个官方的GUI框架，QT这个第三方框架如今很好的满足了需求。 我们安装的版本是QT 5.10，而我们vs的版本是2017.这篇文章主要讲述下列：  QT的安装 QT如何集成到vs中去 QT的helloworld  QT的安装我们安装的版本是QT 5.10，而我们vs的版本是2017. 由于没有安装过QT，今天也是第一次使">
+<meta name="twitter:image" content="http://yoursite.com/img/201803110.png">
+  
+  
+    <link rel="icon" href="/css/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+  
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+<body class="home blog custom-background custom-font-enabled single-author">
+  <div id="page" class="hfeed site">
+      <header id="masthead" class="site-header" role="banner">
+    <hgroup>
+      <h1 class="site-title">
+        <a href="/" title="HarrySong" rel="home">HarrySong</a>
+      </h1>
+      
+        <h2 class="site-description">
+          <a href="/" id="subtitle">Harry&#39;s Blog</a>
+        </h2>
+      
+    </hgroup>
+
+    <nav id="site-navigation" class="main-navigation" role="navigation">
+            <button class="menu-toggle">菜单</button>
+            <a class="assistive-text" href="/#content" title="跳至内容">跳至内容</a><!--TODO-->
+            <div class="menu-main-container">
+                <ul id="menu-main" class="nav-menu">
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/">Home</a></li>
+                
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/archives">Archives</a></li>
+                
+                </ul>
+            </div>
+    </nav>
+</header>
+      <div id="main" class="wrapper">
+        <div id="primary" class="site-content"><div id="content" role="main"><article id="post-QT入坑指南" class="post-QT入坑指南 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title article-title">
+      QT入坑指南
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/11/QT入坑指南/" data-id="cjemiiok50000sgvy101te2fv" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>由于数据结构课设和计算机图形学作业的要求，今天入坑了QT。由于C++至今没有一个官方的GUI框架，QT这个第三方框架如今很好的满足了需求。</p>
+<p>我们安装的版本是QT 5.10，而我们vs的版本是2017.<br>这篇文章主要讲述下列：</p>
+<ul>
+<li>QT的安装</li>
+<li>QT如何集成到vs中去</li>
+<li>QT的helloworld</li>
+</ul>
+<h1 id="QT的安装"><a href="#QT的安装" class="headerlink" title="QT的安装"></a>QT的安装</h1><p>我们安装的版本是QT 5.10，而我们vs的版本是2017.</p>
+<p>由于没有安装过QT，今天也是第一次使用与安装，遇到很多问题。首先我们要去<a href="https://login.qt.io/register" target="_blank" rel="external">QT官网</a>去注册QT的账号，在安装阶段会使用到。一开始我直接下载了QT的在线安装包，中途报错，于是放弃。<br><img src="/img/201803110.png" alt="报错信息"></p>
+<p>这里我们贴出<a href="https://mirrors.tuna.tsinghua.edu.cn/qt/official_releases/qt/5.10/5.10.1/" target="_blank" rel="external">清华大学的镜像站</a>，选择下载qt-opensource-windows-x86-5.10.1.exe。</p>
+<p>下载完成后，打开安装即可，记得如图选中。<img src="/img/201803111.png" alt="选择如图"></p>
+<h1 id="QT与vs集成"><a href="#QT与vs集成" class="headerlink" title="QT与vs集成"></a>QT与vs集成</h1><p>安装完毕后我们需要先添加系统变量路径。<img src="/img/20180311_2.png" alt="示例">然后我们打开visual studio，工具-&gt;扩展和更新-&gt;联机-&gt;搜索QT,把搜到的QT visual studio tools下载下来,然后重新启动vs2017。发现上方多了一个Qt vs tools，然后点击选择QT options，如图配置一下<img src="/img/20180311_3.png" alt="配置">。成功。</p>
+<h1 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h1><p>配置完成后我们既可以在QTcreater里进行操作，也可以直接在vs2017里操作。</p>
+<h2 id="QTcreater"><a href="#QTcreater" class="headerlink" title="QTcreater"></a>QTcreater</h2><p>文件-&gt;新建文件或项目-&gt;选择QT Widgets Application。到这一步时切记只能勾选一个kit。<img src="/img/20180311_4.png" alt="">(注：如果有安装了mingw的同学也可以只点下面的那个，但鉴于我们有了vs2017,选中间的一个比较好。)生成之后，应该如图所示<img src="/img/20180311_5.png" alt="">。main.cpp代码附上</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QPushButton&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;</div><div class="line">	<span class="function">QPushButton <span class="title">b</span><span class="params">(<span class="string">"Hello World!"</span>)</span></span>;</div><div class="line">	b.show();</div><div class="line">	QObject::connect(&amp;b, SIGNAL(clicked()), &amp;a, SLOT(quit()));</div><div class="line">	<span class="keyword">return</span> a.exec();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>左下角绿标运行即可。</p>
+<h2 id="VS2017"><a href="#VS2017" class="headerlink" title="VS2017"></a>VS2017</h2><p>还是一样，新建项目，选择QT Gui Application，找到main函数，贴上代码，运行即可。</p>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/03/11/QT入坑指南/">
+    <time datetime="2018-03-11T07:24:46.000Z" class="entry-date">
+        2018-03-11
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+    
+<nav class="nav-single">
+    <h3 class="assistive-text">文章导航</h3>
+    
+    
+        <span class="nav-next"><a href="/2018/03/10/0-1背包问题KnapsackProblem/" rel="next">0-1背包问题KnapsackProblem <span class="meta-nav">→</span></a></span>
+    
+</nav><!-- .nav-single -->
+
+
+
+
+
+
+
+</div></div>
+        <div id="secondary" class="widget-area" role="complementary">
+  
+    <aside id="search" class="widget widget_search"><form role="search" method="get" accept-charset="utf-8" id="searchform" class="searchform" action="//google.com/search">
+    <div>
+        <input type="text" value="" name="s" id="s" />
+        <input type="submit" id="searchsubmit" value="搜索" />
+    </div>
+</form></aside>
+  
+    
+  
+    
+  
+    
+  <aside class="widget">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget-content">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/11/QT入坑指南/">QT入坑指南</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/10/0-1背包问题KnapsackProblem/">0-1背包问题KnapsackProblem</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/07/计算器/">计算器</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/05/杂谈/">杂谈</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/19/基数排序/">基数排序</a>
+          </li>
+        
+      </ul>
+    </div>
+  </aside>
+
+  
+    
+  
+    
+  
+</div>
+      </div>
+      <footer id="colophon" role="contentinfo">
+    <p>&copy; 2018 HarrySong
+    All rights reserved.</p>
+    <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</footer>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+<script src="/js/navigation.js"></script>
+
+<div id="bg"></div>
+
+  </div>
+</body>
+</html>
