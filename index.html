@@ -62,6 +62,67 @@
       <div id="main" class="wrapper">
         <div id="primary" class="site-content"><div id="content" role="main">
   
+    <article id="post-OpenGL-OpenMesh-VS2017配置指南" class="post-OpenGL-OpenMesh-VS2017配置指南 post type-post status-publish format-standard hentry">
+    <!---->
+
+      <header class="entry-header">
+        
+        
+  
+    <h1 class="entry-title">
+      <a class="article-title" href="/2018/04/20/OpenGL-OpenMesh-VS2017配置指南/">OpenGL+OpenMesh+VS2017配置指南</a>
+    </h1>
+  
+
+        
+        <div class="comments-link">
+            
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/04/20/OpenGL-OpenMesh-VS2017配置指南/" data-id="cjg7xuu6r0002x0vywfwew2rm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+        </div><!-- .comments-link -->
+      </header><!-- .entry-header -->
+
+    <div class="entry-content">
+      
+        <p>上个星期图形学老师布置了这样一道题目：<br>“第二次的图形上机作业：1.读入一个.off格式的三维模型(.off是基本要求，其他模型的格式可以自选作为加分项)并显示。2.能对模型进行交互变换（平移旋转缩放）。请大家先自学一下mesh的表示和off文件格式。”</p>
+<p>我就去搜索了一下相关文件,发现需要配置一个叫做OpenMesh的东西，安装完之后，各种报错。</p>
+<h1 id="正确的安装方法"><a href="#正确的安装方法" class="headerlink" title="正确的安装方法"></a>正确的安装方法</h1><ul>
+<li>(可能博主一开始OpenGL安装的就不正确……所以下面涉及了一部分OpenGL的安装)</li>
+<li>首先我们去<a href="http://www.openmesh.org/download/" target="_blank" rel="external">OpenMesh官网</a>去安装图中的红圈部分。<img src="/img/201804200.png" alt="安装图"></li>
+<li>安装此文件，博主的安装路径是<br>C:\Program Files\OpenMesh 7.0\。</li>
+<li>至此 我们安装完成，下面我们需要在vs2017中正确配置。</li>
+</ul>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><ul>
+<li>进入vs2017，新建项目console1后，我们点击调试-&gt;console1属性，注意！我们的红圈部分一定要是图中那样才能操作！<img src="/img/201804201.png" alt=""></li>
+<li><p>VC++目录-&gt;包含目录增添C:\Program Files\OpenMesh 7.0\include<br>库目录增加<br>C:\Program Files\OpenMesh 7.0\lib</p>
+</li>
+<li><p>C/C++-&gt;预处理器-&gt;预处理器定义增加_USE_MATH_DEFINES</p>
+</li>
+<li>链接器-&gt;输入-&gt;附加依赖项增加OpenMeshCore.lib;OpenMeshTools.lib;</li>
+<li>这时候改成图中的配置 <img src="/img/201804202.png" alt=""></li>
+<li>此时执行若碰见如图所示的错误 则证明没有配置好OpenGL <img src="/img/201804203.png" alt=""></li>
+<li>此时我们需要在项目内再次配一遍OpenGL（我能怎么办…我之前用的时候glut都是可以直接调用的…还是要重新配）在vs2017内点击项目-&gt;管理NuGet程序包-&gt;浏览搜索NupenGL 搜到的两个都下载下来 下载完后 即可调试！<br>![][/img/201804204.png]</li>
+</ul>
+
+      
+    </div><!-- .entry-content -->
+
+    <footer class="entry-meta">
+    <a href="/2018/04/20/OpenGL-OpenMesh-VS2017配置指南/">
+    <time datetime="2018-04-20T11:23:08.000Z" class="entry-date">
+        2018-04-20
+    </time>
+</a>
+    
+    
+    </footer>
+</article>
+
+
+
+
+
+
+  
     <article id="post-QT入坑指南" class="post-QT入坑指南 post type-post status-publish format-standard hentry">
     <!---->
 
@@ -77,7 +138,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/11/QT入坑指南/" data-id="cjfhzafh9000178vy70ti4btc" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/11/QT入坑指南/" data-id="cjg7xuu80000cx0vyvivgjn85" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -136,7 +197,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/10/0-1背包问题KnapsackProblem/" data-id="cjfhzafhg000278vyoxbef4em" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2018/03/10/0-1背包问题KnapsackProblem/" data-id="cjg7xuu7k0006x0vym0npnkbk" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -179,7 +240,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/12/07/计算器/" data-id="cjfhzafi9000b78vypdprkwon" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/12/07/计算器/" data-id="cjg7xuu84000ex0vy8fkk3ur5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -233,7 +294,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/12/05/杂谈/" data-id="cjfhzafhx000778vy27guijm7" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/12/05/杂谈/" data-id="cjg7xuu7s0008x0vyg6r0avah" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -276,7 +337,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/19/基数排序/" data-id="cjfhzafhq000578vymgbh9jxn" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/19/基数排序/" data-id="cjg7xuu7v0009x0vykgfm4k00" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -319,7 +380,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/09/矩阵链问题/" data-id="cjfhzafi7000a78vyp4pmg1qx" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/09/矩阵链问题/" data-id="cjg7xuu7y000bx0vy7x9joxul" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -362,7 +423,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/04/快速排序图示/" data-id="cjfhzafhv000678vyzl2ycz4v" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/04/快速排序图示/" data-id="cjg7xuu750005x0vydmronpx5" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -405,7 +466,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/02/poj2663/" data-id="cjfhzafhk000378vyuvvnidzm" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/11/02/poj2663/" data-id="cjg7xuu6w0003x0vydb46h9nd" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -448,7 +509,7 @@
         
         <div class="comments-link">
             
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/10/29/席维斯特构造法/" data-id="cjfhzafhm000478vyqqxymy33" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
+            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/10/29/席维斯特构造法/" data-id="cjg7xuu700004x0vyde9mdv0l" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
         </div><!-- .comments-link -->
       </header><!-- .entry-header -->
 
@@ -463,49 +524,6 @@
     <a href="/2017/10/29/席维斯特构造法/">
     <time datetime="2017-10-29T08:30:41.000Z" class="entry-date">
         2017-10-29
-    </time>
-</a>
-    
-    
-    </footer>
-</article>
-
-
-
-
-
-
-  
-    <article id="post-最大连续和" class="post-最大连续和 post type-post status-publish format-standard hentry">
-    <!---->
-
-      <header class="entry-header">
-        
-        
-  
-    <h1 class="entry-title">
-      <a class="article-title" href="/2017/10/24/最大连续和/">最大连续和</a>
-    </h1>
-  
-
-        
-        <div class="comments-link">
-            
-            <a href="javascript:void(0);" data-url="http://yoursite.com/2017/10/24/最大连续和/" data-id="cjfhzafi4000978vyql4klnav" class="leave-reply bdsharebuttonbox" data-cmd="more">Share</a>
-        </div><!-- .comments-link -->
-      </header><!-- .entry-header -->
-
-    <div class="entry-content">
-      
-        <p>题意就是有一组数，求连续序列的最大值。<br>共有三种不同的算法：暴力枚举，求和相减，分治法；<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//最大连续和</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//method 3;O(nlgn)</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxsum</span><span class="params">(<span class="keyword">int</span>* A,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span>(y-x==<span class="number">1</span>)  <span class="keyword">return</span>(A[x]);</div><div class="line">    <span class="keyword">int</span> m=x+(y-x)/<span class="number">2</span>;</div><div class="line">    <span class="keyword">int</span> maxs=max(maxsum(A,x,m),maxsum(A,m,y));</div><div class="line">    <span class="keyword">int</span> v,L,R;</div><div class="line">    v=<span class="number">0</span>;L=A[m<span class="number">-1</span>];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m<span class="number">-1</span>;i&gt;=x;i--) L=max(L,v+=A[i]);</div><div class="line">    v=<span class="number">0</span>;R=A[m];</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=m;i&lt;y;i++)    R=max(R,v+=A[i]);</div><div class="line">    <span class="keyword">return</span> max(maxs,L+R);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="comment">//输入部分；</span></div><div class="line">    <span class="keyword">int</span> tot=<span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> A[<span class="number">1000</span>];</div><div class="line"></div><div class="line">    <span class="keyword">int</span> n;</div><div class="line">    <span class="built_in">cin</span>&gt;&gt;n;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;A[i];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//运算部分；</span></div><div class="line">    <span class="keyword">int</span> best=A[<span class="number">0</span>];</div><div class="line"></div><div class="line">   <span class="comment">/*</span></div><div class="line"><span class="comment">   //method 1;O(n^3)</span></div><div class="line"><span class="comment">   for(int i=0;i&lt;n;i++)&#123;</span></div><div class="line"><span class="comment">        for(int j=i;j&lt;n;j++)&#123;</span></div><div class="line"><span class="comment">            int sum=0;</span></div><div class="line"><span class="comment">            for(int k=i;k&lt;=j;k++)&#123;</span></div><div class="line"><span class="comment">                sum+=A[k];</span></div><div class="line"><span class="comment">                tot++;</span></div><div class="line"><span class="comment">            &#125;</span></div><div class="line"><span class="comment">            if(sum&gt;best)    best=sum;</span></div><div class="line"><span class="comment">        &#125;</span></div><div class="line"><span class="comment">    &#125;*/</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">    //method 2;O(n^2)</span></div><div class="line"><span class="comment">    int S[1000];</span></div><div class="line"><span class="comment">    S[0]=0;</span></div><div class="line"><span class="comment">    for(int i=0;i&lt;n;i++)    S[i+1]=S[i]+A[i];</span></div><div class="line"><span class="comment">    for(int i=0;i&lt;n;i++)</span></div><div class="line"><span class="comment">        for(int j=i;j&lt;n;j++)&#123;</span></div><div class="line"><span class="comment">            best=max(best,S[j+1]-S[i]);</span></div><div class="line"><span class="comment">            tot++;</span></div><div class="line"><span class="comment">        &#125;</span></div><div class="line"><span class="comment">    //method2最后数组的大小可能要改变，不然越界；</span></div><div class="line"><span class="comment">*/</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">    //method 3;</span></div><div class="line"><span class="comment">    best=maxsum(A,0,n);</span></div><div class="line"><span class="comment">*/</span></div><div class="line">    <span class="built_in">cout</span>&lt;&lt;best&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"tot:"</span>&lt;&lt;tot&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure></p>
-
-      
-    </div><!-- .entry-content -->
-
-    <footer class="entry-meta">
-    <a href="/2017/10/24/最大连续和/">
-    <time datetime="2017-10-24T14:08:01.000Z" class="entry-date">
-        2017-10-24
     </time>
 </a>
     
@@ -548,6 +566,10 @@
       <ul>
         
           <li>
+            <a href="/2018/04/20/OpenGL-OpenMesh-VS2017配置指南/">OpenGL+OpenMesh+VS2017配置指南</a>
+          </li>
+        
+          <li>
             <a href="/2018/03/11/QT入坑指南/">QT入坑指南</a>
           </li>
         
@@ -561,10 +583,6 @@
         
           <li>
             <a href="/2017/12/05/杂谈/">杂谈</a>
-          </li>
-        
-          <li>
-            <a href="/2017/11/19/基数排序/">基数排序</a>
           </li>
         
       </ul>
