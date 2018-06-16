@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="HarrySong">
 <meta property="og:description" content="计网大作业的题目是做一个简单的Web Server，不太清楚WebServer是什么，查了一下，发现是这么定义的。就是你的一个服务器，可以处理http连接，从而达到浏览的目的。  你在浏览器地址栏里输入“ http://www.people.com.cn/” 回车后，你便看到了人民网的主页，你所看到的这些东西从哪里来的呢？这些东西放在北京市朝阳区金台西路人民日报社网络中心的某台计算机里，你向网络发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806180.png%22">
-<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806181.png%22">
-<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806182.png%22">
-<meta property="og:updated_time" content="2018-06-16T17:11:13.323Z">
+<meta property="og:image" content="http://yoursite.com/img/201806160.png">
+<meta property="og:image" content="http://yoursite.com/img/201806161.png">
+<meta property="og:image" content="http://yoursite.com/img/201806162.png">
+<meta property="og:updated_time" content="2018-06-16T17:17:41.266Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的WebServer">
 <meta name="twitter:description" content="计网大作业的题目是做一个简单的Web Server，不太清楚WebServer是什么，查了一下，发现是这么定义的。就是你的一个服务器，可以处理http连接，从而达到浏览的目的。  你在浏览器地址栏里输入“ http://www.people.com.cn/” 回车后，你便看到了人民网的主页，你所看到的这些东西从哪里来的呢？这些东西放在北京市朝阳区金台西路人民日报社网络中心的某台计算机里，你向网络发">
-<meta name="twitter:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806180.png%22">
+<meta name="twitter:image" content="http://yoursite.com/img/201806160.png">
 
 
 
@@ -352,12 +352,12 @@
 <p>首先我们得知道是如何建立通讯的：</p>
 <p>我们以<a href="http://localhost:1000" target="_blank" rel="external">http://localhost:1000</a> 为例，首先我们的browser和webserver之间建立了一个TCP connection，然后我们的browser通过这个connection发送一个http request给webserver并且等待一个http response。当我们的browser接收到这个response的时候就会显示”helloworld”。</p>
 <p>这时候我们就想知道 客户端和服务器之间是怎么建立TCP 连接的。 其实 我们用了一个叫做socket的东西 下面我们使用命令telnet来模拟浏览器的操作。</p>
-<p>我们这些操作都是在同一台计算机上完成的 然后我们在同一台计算机上使用telnet命令指定访问localhost并且指定端口号。这个时候我们就已经建立了一个tcp connection了。<img src="&quot;./img/201806180.png&quot;" alt=""><br><img src="&quot;./img/201806181.png&quot;" alt=""><br>这时候 我们就需要发送和接收http信息了 我们首先使用GET命令 GET /hello HTTP/1.1 服务器返回</p>
+<p>我们这些操作都是在同一台计算机上完成的 然后我们在同一台计算机上使用telnet命令指定访问localhost并且指定端口号。这个时候我们就已经建立了一个tcp connection了。<br><img src="/img/201806160.png" alt=""><br><img src="/img/201806161.png" alt=""><br>这时候 我们就需要发送和接收http信息了 我们首先使用GET命令 GET /hello HTTP/1.1 服务器返回</p>
 <blockquote>
 <p>HTTP/1.1 200 OK</p>
 <p>Hello,World!</p>
 </blockquote>
-<p><img src="&quot;./img/201806182.png&quot;" alt=""></p>
+<p><img src="/img/201806162.png" alt=""></p>
 <p>这里要说一句，在windows下的telnet中，默认是字符模式，就是你输一个字符他就立刻传给服务器了，所以我们需要使用send来发送字符串。</p>
 <h1 id="关于服务器部署python脚本"><a href="#关于服务器部署python脚本" class="headerlink" title="关于服务器部署python脚本"></a>关于服务器部署python脚本</h1><p>今天租了一个阿里云的轻量应用服务器 原本以为就是远程连接 然后执行python webserver.py就可以了 但是发现退出终端之后 却发现这个进程被终止了 最后查了下 发现一般来说部署脚本基本上都会使用supervisor(一个后台进程管理的程序) 但是我试着去部署了一下 却最后连接的时候出现了500的错误 据说是supervisor跑python脚本是有bug的。<br>其实nohup python webserver.py就可以了 不过比起supervisor的一个不好的地方是 他不能保证kill后程序的自动启动 只能保证不在退出终端时退出程序就是了。</p>
 
