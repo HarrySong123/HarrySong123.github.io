@@ -86,10 +86,14 @@
 <meta property="og:site_name" content="HarrySong">
 <meta property="og:description" content="计网大作业的题目是做一个简单的Web Server，不太清楚WebServer是什么，查了一下，发现是这么定义的。就是你的一个服务器，可以处理http连接，从而达到浏览的目的。  你在浏览器地址栏里输入“ http://www.people.com.cn/” 回车后，你便看到了人民网的主页，你所看到的这些东西从哪里来的呢？这些东西放在北京市朝阳区金台西路人民日报社网络中心的某台计算机里，你向网络发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-14T14:32:32.293Z">
+<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806180.png%22">
+<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806181.png%22">
+<meta property="og:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806182.png%22">
+<meta property="og:updated_time" content="2018-06-16T17:11:13.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的WebServer">
 <meta name="twitter:description" content="计网大作业的题目是做一个简单的Web Server，不太清楚WebServer是什么，查了一下，发现是这么定义的。就是你的一个服务器，可以处理http连接，从而达到浏览的目的。  你在浏览器地址栏里输入“ http://www.people.com.cn/” 回车后，你便看到了人民网的主页，你所看到的这些东西从哪里来的呢？这些东西放在北京市朝阳区金台西路人民日报社网络中心的某台计算机里，你向网络发">
+<meta name="twitter:image" content="http://yoursite.com/2018/06/14/简单的WebServer/%22./img/201806180.png%22">
 
 
 
@@ -341,9 +345,22 @@
 <li>能够处理二进制文件。</li>
 </ol>
 </blockquote>
-<p>其实已经有很多成熟的web server例如nginx,apache.感觉如果从零开始写，自己造轮子的话，实在是太麻烦了，于是还是放弃使用cpp而使用java来实现这个Web Server。</p>
-<p>下面是web server的最简实现：</p>
+<p>其实已经有很多成熟的web server例如nginx,apache.感觉如果从零开始写，自己造轮子的话，实在是太麻烦了，于是还是放弃使用cpp而使用java或python来实现这个Web Server。</p>
+<p>下面是web server的java最简实现：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.BufferedReader;</div><div class="line"><span class="keyword">import</span> java.io.BufferedWriter;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStreamReader;</div><div class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</div><div class="line"><span class="keyword">import</span> java.net.ServerSocket;</div><div class="line"><span class="keyword">import</span> java.net.Socket;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebServer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> TCP_PORT = <span class="number">9090</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        ServerSocket ss = <span class="keyword">new</span> ServerSocket(TCP_PORT);</div><div class="line">        Socket socket = ss.accept();</div><div class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(</div><div class="line">                <span class="keyword">new</span> InputStreamReader(socket.getInputStream()));</div><div class="line">        String buffer = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span> ((buffer = br.readLine()) != <span class="keyword">null</span> &amp;&amp; !buffer.equals(<span class="string">""</span>)) &#123;</div><div class="line">            System.out.println(buffer);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(</div><div class="line">                <span class="keyword">new</span> OutputStreamWriter(socket.getOutputStream()));</div><div class="line">        bw.write(<span class="string">"HTTP/1.1 200 OK\n"</span>);</div><div class="line">        bw.write(<span class="string">"Content-Type: text/html; charset=UTF-8\n\n"</span>);</div><div class="line">        bw.write(<span class="string">"&lt;html&gt;\n"</span> + <span class="string">"&lt;head&gt;\n"</span> + <span class="string">"    &lt;title&gt;first page&lt;/title&gt;\n"</span></div><div class="line">                + <span class="string">"&lt;/head&gt;\n"</span> + <span class="string">"&lt;body&gt;\n"</span> + <span class="string">"    &lt;h1&gt;Hello Web Server!&lt;/h1&gt;\n"</span></div><div class="line">                + <span class="string">"&lt;/body&gt;\n"</span> + <span class="string">"&lt;/html&gt;\n"</span>);</div><div class="line">        bw.flush();</div><div class="line">        bw.close();</div><div class="line"></div><div class="line">        br.close();</div><div class="line">        socket.close();</div><div class="line">        ss.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<p>下面是python的最简实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> socket</div><div class="line"></div><div class="line">HOST=<span class="string">''</span></div><div class="line">PORT=<span class="number">1000</span></div><div class="line">listen_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</div><div class="line">listen_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</div><div class="line">listen_socket.bind((HOST, PORT))</div><div class="line">listen_socket.listen(<span class="number">1</span>)</div><div class="line"><span class="keyword">print</span> (<span class="string">'Serving HTTP on port %s ...'</span> % PORT)</div><div class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">    client_connection, client_address = listen_socket.accept()</div><div class="line">    request = client_connection.recv(<span class="number">1024</span>)</div><div class="line">    <span class="keyword">print</span> (request)</div><div class="line"></div><div class="line">    http_response = <span class="string">b"""\</span></div><div class="line"><span class="string">HTTP/1.1 200 OK</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Hello, World!</span></div><div class="line"><span class="string">"""</span></div><div class="line">    </div><div class="line">    client_connection.sendall(http_response)</div><div class="line">    client_connection.close()</div></pre></td></tr></table></figure></p>
+<p>首先我们得知道是如何建立通讯的：</p>
+<p>我们以<a href="http://localhost:1000" target="_blank" rel="external">http://localhost:1000</a> 为例，首先我们的browser和webserver之间建立了一个TCP connection，然后我们的browser通过这个connection发送一个http request给webserver并且等待一个http response。当我们的browser接收到这个response的时候就会显示”helloworld”。</p>
+<p>这时候我们就想知道 客户端和服务器之间是怎么建立TCP 连接的。 其实 我们用了一个叫做socket的东西 下面我们使用命令telnet来模拟浏览器的操作。</p>
+<p>我们这些操作都是在同一台计算机上完成的 然后我们在同一台计算机上使用telnet命令指定访问localhost并且指定端口号。这个时候我们就已经建立了一个tcp connection了。<img src="&quot;./img/201806180.png&quot;" alt=""><br><img src="&quot;./img/201806181.png&quot;" alt=""><br>这时候 我们就需要发送和接收http信息了 我们首先使用GET命令 GET /hello HTTP/1.1 服务器返回</p>
+<blockquote>
+<p>HTTP/1.1 200 OK</p>
+<p>Hello,World!</p>
+</blockquote>
+<p><img src="&quot;./img/201806182.png&quot;" alt=""></p>
+<p>这里要说一句，在windows下的telnet中，默认是字符模式，就是你输一个字符他就立刻传给服务器了，所以我们需要使用send来发送字符串。</p>
+<h1 id="关于服务器部署python脚本"><a href="#关于服务器部署python脚本" class="headerlink" title="关于服务器部署python脚本"></a>关于服务器部署python脚本</h1><p>今天租了一个阿里云的轻量应用服务器 原本以为就是远程连接 然后执行python webserver.py就可以了 但是发现退出终端之后 却发现这个进程被终止了 最后查了下 发现一般来说部署脚本基本上都会使用supervisor(一个后台进程管理的程序) 但是我试着去部署了一下 却最后连接的时候出现了500的错误 据说是supervisor跑python脚本是有bug的。<br>其实nohup python webserver.py就可以了 不过比起supervisor的一个不好的地方是 他不能保证kill后程序的自动启动 只能保证不在退出终端时退出程序就是了。</p>
+
       
     </div>
     
@@ -451,8 +468,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -500,6 +526,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于服务器部署python脚本"><span class="nav-number">1.</span> <span class="nav-text">关于服务器部署python脚本</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
